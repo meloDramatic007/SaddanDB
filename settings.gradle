@@ -1,0 +1,3 @@
+rootProject.name='SaddanDB'
+include ':app'
+include ':saddandb'
