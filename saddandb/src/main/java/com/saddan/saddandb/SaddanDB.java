@@ -64,10 +64,10 @@ public class SaddanDB
         return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key, ""), "‚‗‚")));
     }
 
-    void setList(String key, List<? extends Object> trendingListResponses)
+ public void setList(String key, List<? extends Object> list)
     {
         ArrayList<Object> trendingObject = new ArrayList<Object>();
-        for(Object a : trendingListResponses){
+        for(Object a : list){
             trendingObject.add((Object) a);
         }
 
@@ -76,16 +76,16 @@ public class SaddanDB
     }
 
     @SuppressWarnings("unchecked")
-    <T> List<? extends Object> getList(String key,Class<T> Typex)
+    public <T> List<? extends Object> getList(String key,Class<T> Typex)
     {
         ArrayList<Object> trendingObject =getListObject(key, Typex);
-        ArrayList<T> trendingListResponses = new ArrayList<>();
+        ArrayList<T> list = new ArrayList<>();
 
         for(Object objs : trendingObject)
         {
-            trendingListResponses.add((T) objs);
+            list.add((T) objs);
         }
 
-        return trendingListResponses;
+        return list;
     }
 }
