@@ -15,7 +15,7 @@ public class SaddanDB
 {
     private SharedPreferences preferences;
 
-    SaddanDB(Context appContext)
+    public SaddanDB(Context appContext)
     {
         this.preferences = PreferenceManager.getDefaultSharedPreferences(appContext);
     }
