@@ -14,16 +14,20 @@ import java.util.List;
 public class SaddanDB
 {
     private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
 
     public SaddanDB(Context appContext)
     {
-        this.preferences = PreferenceManager.getDefaultSharedPreferences(appContext);
+        //this.preferences = PreferenceManager.getDefaultSharedPreferences(appContext);
+         preferences=appContext.getSharedPreferences("access_token",Context.MODE_PRIVATE);
+        // editor = preferences.edit();
     }
 
     private void putListObject(String key, ArrayList<Object> objArray)
     {
         checkForNullKey(key);
         Gson gson = new Gson();
+
         ArrayList<String> objStrings = new ArrayList<String>();
         for(Object obj : objArray){
             objStrings.add(gson.toJson(obj));
@@ -75,7 +79,7 @@ public class SaddanDB
         putListObject(key, trendingObject);
     }
 
-    @SuppressWarnings("unchecked")
+    //@SuppressWarnings("unchecked")
     public <T> List<? extends Object> getList(String key,Class<T> Typex)
     {
         ArrayList<Object> trendingObject =getListObject(key, Typex);
@@ -86,6 +90,15 @@ public class SaddanDB
             list.add((T) objs);
         }
 
+
+
         return list;
     }
+
+    public void ClearData(){
+
+        preferences.edit().clear();
+        preferences.edit().apply();
+    }
+
 }

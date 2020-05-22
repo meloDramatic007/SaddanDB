@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
+
+
         list_SaddanDB= (List<Movie>) saddanDB.getList("movie",Movie.class);
 
         for(Movie movie:list_SaddanDB)
