@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 }
+```
 
 
-
-* use  **@SuppressWarnings("unchecked")** to avoid **Type safety: Unchecked cast from Object** warning.
+# use  **@SuppressWarnings("unchecked")** to avoid **Type safety: Unchecked cast from Object** warning.
